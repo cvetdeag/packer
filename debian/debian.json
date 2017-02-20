@@ -7,13 +7,26 @@
   "iso_checksum": "90907edee373504cd4c9249501fc9092",
   "iso_checksum_type": "md5",
   "vboxmanage": [
-            ["modifyvm", "{{.Name}}", "--memory", "8192"]
+            ["modifyvm", "{{.Name}}", "--memory", "4096"]
           ],
-  "ssh_username": "packer",
-  "ssh_password": "packer",
+  "ssh_username": "vagrant",
+  "ssh_password": "vagrant",
   "headless" : false,
-  "ssh_wait_timeout": "10000s",
-  "shutdown_command": "echo 'packer' | sudo -S shutdown - now"
+  "ssh_wait_timeout": "20m",
+  "shutdown_timeout": "2m",
+  "shutdown_command": "sudo -S shutdown -h now",
+  "boot_command" : [
+    "<esc><wait>",
+        "install <wait>",
+        "auto <wait>",
+        "preseed/url=http://192.168.1.115:8000/preseed.cfg <wait>",
+        "debian-installer=en_US <wait>",
+        "locale=en_US.UTF-8 <wait>",
+        "keymap=de <wait>",
+        "netcfg/get_hostname=debian <wait>",
+        "netcfg/get_domain=home.lan <wait>",
+        "<enter>"
+        ]
     }
   ]
 }

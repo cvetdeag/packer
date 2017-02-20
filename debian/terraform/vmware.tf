@@ -21,7 +21,7 @@ resource "vsphere_virtual_machine" "RedHat"{
   vcpu = "2"
   memory = "8192"
   network_interface {
-    label = "(2021) DE-FRA-AVC-Interim"        
+    label = "(2021) DE-FRA-AVC-Interim"       
     }
   disk {
     # For VMware Storage Cluster the complete path to a datastore has to be declared "StorageCluster-Name/datastore-Name"
