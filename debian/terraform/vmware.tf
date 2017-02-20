@@ -25,6 +25,8 @@ resource "vsphere_virtual_machine" "RedHat"{
     }
   disk {
     # For VMware Storage Cluster the complete path to a datastore has to be declared "StorageCluster-Name/datastore-Name"
-    datastore = "vBlock_FRA-A1_RDS/vBlock_FRA-A1_RDS_000"template = "RH7-template"}
+    datastore = "vBlock_FRA-A1_RDS/vBlock_FRA-A1_RDS_000"
+    template = "RH7-template"
+    }
   count = "1"
   }
